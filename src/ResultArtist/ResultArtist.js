@@ -1,21 +1,25 @@
 import './ResultArtist.css'
 
-function ResultArtist() {
+function ResultArtist({ results }) {
   return (
-    <div id="result-artist" className="hidden">
+    <div id="result-artist">
       <div id="search-container" className="grid-container">
-        <div class="card-img">
-          <img className="artist-img" src="" />
-          <div className="play">
-            <span className="fa fa-solid fa-play"></span>
+        {results.map((artist, index) => (
+          <div key={index}>
+            <div className="card-img">
+              <img className="artist-img" src={artist.urlImg} />
+              <div className="play">
+                <span className="fa fa-solid fa-play"></span>
+              </div>
+            </div>
+            <div className="card-text">
+              <a title={artist.name} className="vst" href="">
+                <span className="artist-name">{artist.name}</span>
+                <span className="artist-categorie">{artist.genre}</span>
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="card-text">
-          <a title="Foo Fighters" className="vst" href="">
-            <span className="artist-name">nome artista</span>
-            <span className="artist-categorie">Artista</span>
-          </a>
-        </div>
+        ))}
       </div>
     </div>
   )

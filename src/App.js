@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import logo from './logo.svg'
 
 import './styles/main-content.css'
@@ -14,6 +16,8 @@ import ResultArtist from './ResultArtist/ResultArtist'
 import LogoSpotify from './assets/icons/logo-spotify.png'
 
 function App() {
+  const [results, setResults] = useState([])
+
   return (
     <div className="App">
       <div className="sidebar">
@@ -81,10 +85,10 @@ function App() {
 
       <main>
         <div className="main-container">
-          <Header />
+          <Header onSearchResult={setResults} />
           <div className="playlist-container">
-            <ResultPlaylists />
-            <ResultArtist />
+            {results.length === 0 && <ResultPlaylists />}
+            {results.length > 0 && <ResultArtist results={results} />}
           </div>
         </div>
       </main>
