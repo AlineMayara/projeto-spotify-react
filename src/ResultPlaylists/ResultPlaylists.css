@@ -142,7 +142,7 @@
 }
 
 .grid-container {
-  grid-gap:24px;
+  grid-gap: 50px;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   min-width: 767px;
@@ -191,9 +191,11 @@
 }
 
 .card-text a {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 100%;
-  vertical-align: middle;
+  text-decoration: none;
 }
 
 .artist-name {
@@ -212,19 +214,24 @@
 }
 
 .play {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .play .fa-play {
-  position: absolute;
-  right: 10px;
-  top: 120px;
   padding: 18px;
   background-color: #1db954;
   border-radius: 100%;
   font-size: 14px;
   opacity: 0;
   transition: all ease 0.4s;
+  margin-top: 45px;
 }
 
 .artist-card:hover .play .fa-play {

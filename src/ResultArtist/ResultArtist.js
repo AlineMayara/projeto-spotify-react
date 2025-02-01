@@ -5,7 +5,7 @@ function ResultArtist({ results }) {
     <div id="result-artist">
       <div id="search-container" className="grid-container">
         {results.map((artist, index) => (
-          <div key={index}>
+          <div key={index} className="artist-card">
             <div className="card-img">
               <img className="artist-img" src={artist.urlImg} />
               <div className="play">
